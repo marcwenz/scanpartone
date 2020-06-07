@@ -1,0 +1,1 @@
+[{"name": "Posteingang ohne Stempel", "qrcod": "True", "duplex": "yes", "multipage": "yes", "depth": "1"}, {"name": "Scan to UO", "qrcode": "yes", "duplex": "yes", "multipage": "yes", "depth": "1"}, {"name": "Scan to UO", "qrcode": "no", "duplex": "no", "multipage": "no", "depth": "1"}, {"name": "Scan to DMS", "qrcode": "no", "duplex": "yes", "multipage": "yes", "depth": "8"}]
