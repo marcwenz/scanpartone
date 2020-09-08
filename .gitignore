@@ -4,3 +4,4 @@ parts/__pycache__
 scans
 *.vim
 /Pipfile
+*.pyc
