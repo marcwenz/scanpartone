@@ -1,10 +1,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets, QtSvg
 from PyQt5.QtWidgets import QSizePolicy
+from utils import findMainWindow
 
 
 class ScanWidget(QtWidgets.QWidget):
     def __init__(self, parent=None, flags=QtCore.Qt.WindowFlags()):
-        super().__init__(parent=parent, flags=flags)
+        super().__init__(objectName="cw_scan", parent=parent, flags=flags)
 
         self.mainLayout = QtWidgets.QVBoxLayout(self)
         self.mainLayout.setContentsMargins(0, 0, 0, 0)
@@ -17,7 +18,7 @@ class ScanWidget(QtWidgets.QWidget):
 
     def updateConfig(self, text):
         # TODO problem with popup window
-        self.configTabWidget.updateConfig(self.window().configs["sc"][text])
+        self.configTabWidget.updateConfig(findMainWindow().configs["sc"][text])
 
 
 class QHSeperationLine(QtWidgets.QFrame):
@@ -49,7 +50,7 @@ class ConfigBarWidget(QtWidgets.QWidget):
         self.configLayout.setSpacing(40)
         self.comboBox_config = C_ComboBox(self)
         # TODO problem with popup window
-        self.comboBox_config.addItems(self.window().configs["sc"].keys())
+        self.comboBox_config.addItems(findMainWindow().configs["sc"].keys())
         self.comboBox_config.currentTextChanged.connect(
             lambda _: self.parent().updateConfig(self.comboBox_config.currentText()))
         # self.comboBox_config.addItems(["item", "item", "item", "item"])
@@ -99,10 +100,11 @@ class ConfigTabWidget(QtWidgets.QTabWidget):
 
     def updateConfig(self, conf):
         print(conf)
-        self.tmp_conf = self.window().setScannerConfig(conf)
+        mw = findMainWindow()
+        self.tmp_conf = mw.setScannerConfig(conf)
 
         print(conf)
-        self.window().configs["sc"]["dbw1"] = self.tmp_conf
+        mw.configs["sc"]["dbw1"] = self.tmp_conf
         print("updating...")
 
 

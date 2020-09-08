@@ -21,7 +21,7 @@ class InfoBar(QtWidgets.QWidget):
 
         self.nameLabel = QtWidgets.QLabel("Workflows".upper(), parent=self)
         self.nameLabel.setStyleSheet(
-            "font: 40pt SF New Republic; color:#bdbcb1; padding-top: 17px; padding-left: 15px")
+                "font: 40pt SF New Republic; color:#bdbcb1; padding-top: 17px; padding-left: 15px; padding-right:15px")
 
     def sizeHint(self):
         return QtCore.QSize(0, 120)

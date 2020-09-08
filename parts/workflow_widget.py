@@ -1,20 +1,20 @@
 from PyQt5 import QtCore, QtGui, QtWidgets, QtSvg
 from config.config import loadConfig
+from utils import findMainWindow
 # from twainhandle.scantwain import ScanManager
 
 
 class WorkflowWidget(QtWidgets.QWidget):
     def __init__(self, parent=None, flags=QtCore.Qt.WindowFlags()):
-        super().__init__(parent=parent, flags=flags)
+        super().__init__(objectName="cw_workflow", parent=parent, flags=flags)
         self.setSizePolicy(QtWidgets.QSizePolicy.Expanding,
                            QtWidgets.QSizePolicy.Expanding)
         # self.wf = WorkflowSelection(self)
-        self.setObjectName("workflow_widget")
         self.gridLayout = QtWidgets.QGridLayout(self)
         # self.gridLayout.setAlignment(QtCore.Qt.AlignCenter)
         self.wfItems = []
         cc = RowCol(3, 3)
-        for wf in self.window().configs["wf"]:
+        for wf in findMainWindow().configs["wf"]:
             wfi = WorkflowItem(wf, self)
             self.wfItems.append(wfi)
             self.gridLayout.addWidget(wfi, *cc.next())
