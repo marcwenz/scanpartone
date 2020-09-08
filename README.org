@@ -1,0 +1,24 @@
+#+TITLE: Scanner Application part one
+
+Part one of two for my scanner application.
+
+* What does part one do?
+It interfaces with the scanner, sets settings and dispatches the scanning jobs.
+
+* Features roadmap
+- Preview scan one page
+** Accounts [0/1]
+- [ ] Accounts for different users with individual configs
+** Workflows [0/2]
+- [ ] Workflows to quickly dispatch a scan job with specific settings
+- [ ] Adding, deleting and editing workflows
+** Settings [0/3]
+- [ ] Fully featured settings panel
+- [ ] Load, edit and store multiple settings configurations
+- [ ] Integrated settings as well as popup for quick editing
+*** *Settings for: [0/5]*
+  - [ ] Quicksettings
+  - [ ] Color
+  - [ ] Page Layout
+  - [ ] QR Code Detection
+  - [ ] Output format
