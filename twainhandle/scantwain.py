@@ -4,7 +4,7 @@ from time import time
 
 def getTypeDict():
     caps = {}
-    with open("CAP_TO_TYPE.txt", "r") as f:
+    with open("txts/CAP_TO_TYPE.txt", "r") as f:
         for l in f.readlines():
             l = l.strip().split(",")
             if l[0] not in caps.keys() and len(l) > 0:
@@ -13,12 +13,11 @@ def getTypeDict():
 
 
 class ScanManager:
-
     def __init__(self, sc=None):
         self.sm = twain.SourceManager(0)
         if not sc:
             sc = self.sm.GetSourceList()[0]
-        self.scanner = self.sm.OpenSource(bytes(sc, 'utf-8'))
+        self.scanner = self.sm.OpenSource(bytes(sc, "utf-8"))
         self.typelookup = getTypeDict()
 
     def get_available():
@@ -26,8 +25,7 @@ class ScanManager:
 
     def acquire_images(self, ui=True, modal=True):
         self.ims = []
-        self.scanner.acquire_file(
-            lambda _: self.populateIms(), show_ui=ui, modal=modal)
+        self.scanner.acquire_file(lambda _: self.populateIms(), show_ui=ui, modal=modal)
         return self.ims
 
     def populateIms(self):
@@ -36,8 +34,7 @@ class ScanManager:
         return p
 
     def set_property(self, property, value):
-        self.scanner.SetCapability(
-            property, self.typelookup[property], value)
+        self.scanner.SetCapability(property, self.typelookup[property], value)
 
     def get_property(self, property):
         return self.scanner.GetCapabilityCurrent(property)

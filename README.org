@@ -6,7 +6,7 @@ Part one of two for my scanner application.
 It interfaces with the scanner, sets settings and dispatches the scanning jobs.
 
 * Features roadmap
-- Preview scan one page
+*** [ ] Preview scan one page
 *** Accounts [0/1]
 - [ ] Accounts for different users with individual configs
 *** Workflows [0/2]
